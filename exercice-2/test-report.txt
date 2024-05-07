@@ -1,0 +1,8 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.2, pytest-8.1.1, pluggy-1.4.0
+rootdir: /Users/youssramebarki/Documents/Cours Redha/CoursTest/eternal-test-exercises/exercice-2
+collected 1 item
+
+test_tortue.py .                                                         [100%]
+
+============================== 1 passed in 0.04s ===============================

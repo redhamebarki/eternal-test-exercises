@@ -24,7 +24,7 @@ def test_move_tortue():
 
   La tortue est géniale et peut donc se téléporter avec la méthode teleport.
   """
-  t = Tortue(x=0, y=0)
+  t = Tortue(0, 0)
   assert t.x == 0 and t.y == 0
   t.look_right()
   t.walk(10)
@@ -40,3 +40,40 @@ def test_move_tortue():
   assert t.x == 6 and t.y == 5
   t.teleport(21, 42)
   assert t.x == 21 and t.y == 42
+class Tortue:
+    def __init__(self, origine_x, origine_y):
+        self.x = origine_x
+        self.y = origine_y
+        self.orientation = 'right'  
+
+    def walk(self, distance):
+        """Avance la tortue de la distance spécifiée selon son orientation."""
+        if self.orientation == 'right':
+            self.x += distance
+        elif self.orientation == 'left':
+            self.x -= distance
+        elif self.orientation == 'down':
+            self.y += distance
+        elif self.orientation == 'up':
+            self.y -= distance
+
+    def look_up(self):
+        """Permet à la tortue de regarder vers le haut."""
+        self.orientation = 'up'
+
+    def look_down(self):
+        """Permet à la tortue de regarder vers le bas."""
+        self.orientation = 'down'
+
+    def look_left(self):
+        """Permet à la tortue de regarder vers la gauche."""
+        self.orientation = 'left'
+
+    def look_right(self):
+        """Permet à la tortue de regarder vers la droite."""
+        self.orientation = 'right'
+
+    def teleport(self, x, y):
+        """Téléporte la tortue aux coordonnées spécifiées."""
+        self.x = x
+        self.y = y
