@@ -5,10 +5,29 @@ Coverage 100%. Les tests doivent passer. Des docstrings doivent être présentes
 import pytest
 
 def find_largest(numbers: list):
-    raise NotImplementedError()
+    # Check if the input is actually a list and it is not empty
+    if not isinstance(numbers, list) or not numbers:
+        raise ValueError("Input must be a non-empty list")
+
+    # Ensure all elements in the list are numbers (int or float)
+    if not all(isinstance(num, (int, float)) for num in numbers):
+        raise ValueError("All elements must be numbers")
+
+    # Finding the largest number using max function
+    return max(numbers)
+
+
+
+
 
 def find_absolute_largest(numbers: list):
-    raise NotImplementedError()
+    if not isinstance(numbers, list) or not numbers:
+        raise ValueError("Input must be a non-empty list")
+
+    # Ensure all elements in the list are numbers (int or float)
+    if not all(isinstance(num, (int, float)) for num in numbers):
+        raise ValueError("All elements must be numbers")
+    return max(numbers,key=abs)
 
 def test_find_largest():
     assert find_largest([0, 1, 2, 3, 40]) == 40
